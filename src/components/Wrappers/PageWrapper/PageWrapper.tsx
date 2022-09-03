@@ -1,12 +1,13 @@
 
 import * as React from "react"
-import { Container } from "react-bootstrap"
+import { AppHeader } from "../../AppHeader/AppHeader"
 
 export const PageWrapper: React.FC<any> = ({ children }) => {
 
     return (
-        <Container>
+
+        <div>
             {children}
-        </Container>
+        </div>
     )
 }

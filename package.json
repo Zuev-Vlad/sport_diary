@@ -57,6 +57,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.8",
     "body-parser": "^1.20.0",
     "bootstrap": "^5.2.0",
     "classnames": "^2.2.6",
@@ -65,7 +66,6 @@
     "pg-hstore": "^2.3.4",
     "prop-types": "^15.7.2",
     "react": "^16.3.1",
-    "react-bootstrap": "^2.5.0",
     "react-dom": "^16.3.1",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.5",

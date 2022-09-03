@@ -13,7 +13,7 @@ export const AppRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/home" element={(<LandingPage />)} />
+                <Route path="/" element={(<LandingPage />)} />
                 <Route path="/auth" element={(<AuthPage />)} />
                 <Route path="/protected" element={
                     <PrivateRoute> <div>Hello private page</div> </PrivateRoute>

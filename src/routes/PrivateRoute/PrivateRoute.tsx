@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Navigate, PathRouteProps, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { UserModel } from "../../models/UserModel/UserModel";
+import { pagesPath } from "../routesConfig";
 
 
 export const PrivateRoute: React.FC<any> = ({ children }) => {
@@ -12,5 +13,5 @@ export const PrivateRoute: React.FC<any> = ({ children }) => {
 
     return userModel.state?.isAuth
         ? children
-        : <Navigate to="/home" replace />
+        : <Navigate to={pagesPath.index} replace />
 }

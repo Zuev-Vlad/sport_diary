@@ -13,39 +13,29 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const entry = {
-  home: "./src/home/index.tsx"
+  index: "./src/index.tsx"
 };
 
-const plugins = [];
-
-for (let key in entry) {
-  plugins.push(
-    new HtmlWebpackPlugin({
-      template: "./src/" + key + "/index.ejs",
-      favicon: "./src/" + key + "/favicon.ico",
-      filename: `[name]/index.html`,
-      inject: true,
-      chunks: [key],
-      templateParameters: {
-        assets: {
-          js: [`[name]/index.js`]
-        }
-      },
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    })
-  );
-}
+const plugins = [
+  new MiniCssExtractPlugin(),
+  new HtmlWebpackPlugin({
+    template: "./src/index.ejs",
+    favicon: "./src/favicon.ico",
+    filename: `[name].html`,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+      removeEmptyAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      keepClosingSlash: true,
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true,
+    },
+  })
+];
 
 if (process.env.SERVE) {
   plugins.push(new ReactRefreshWebpackPlugin());
@@ -58,13 +48,14 @@ module.exports = {
   devtool: "source-map",
   entry,
   devServer: {
-    static: "./src/home/",
+    static: "./src/",
+    historyApiFallback: true,
     hot: true,
   },
 
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "./[name]/index.[hash:8].js",
+    filename: "index.[hash:8].js",
     assetModuleFilename: "[fragment]/assets/[hash][ext][query]",
     chunkFilename: '[id].[hash:8].js',
     clean: true,
@@ -117,3 +108,34 @@ module.exports = {
     ],
   },
 };
+
+
+
+// for (let key in entry) {
+//   plugins.push(
+//     new HtmlWebpackPlugin({
+//       template: "./src/" + key + "/index.ejs",
+//       favicon: "./src/" + key + "/favicon.ico",
+//       filename: `[name]/index.html`,
+//       inject: true,
+//       chunks: [key],
+//       templateParameters: {
+//         assets: {
+//           js: [`[name]/index.js`]
+//         }
+//       },
+//       minify: {
+//         removeComments: true,
+//         collapseWhitespace: true,
+//         removeRedundantAttributes: true,
+//         useShortDoctype: true,
+//         removeEmptyAttributes: true,
+//         removeStyleLinkTypeAttributes: true,
+//         keepClosingSlash: true,
+//         minifyJS: true,
+//         minifyCSS: true,
+//         minifyURLs: true,
+//       },
+//     })
+//   );
+// }

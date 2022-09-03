@@ -3,7 +3,6 @@ import { UserModel } from '../../models/UserModel/UserModel';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Auth } from '../../components/Auth/Auth';
-import { Col, Row } from "react-bootstrap";
 
 
 const AuthPageContainer = styled.div`
@@ -12,6 +11,7 @@ const AuthPageContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 10vh;
+    background: #232c47;
 `
 
 
@@ -25,10 +25,10 @@ export const AuthPage = () => {
     }
 
     return (
-        <Row className="mt-3">
-            <Col xs={3} className="mx-auto">
+        <AuthPageContainer>
+            <div className="mx-auto">
                 <Auth />
-            </Col>
-        </Row>
+            </div>
+        </AuthPageContainer>
     )
 }

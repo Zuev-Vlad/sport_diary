@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const userRouter = require('./routers/userRouter')
+const path = require('path');
 
 const corsOptions = {
   origin: "http://localhost:8082"
@@ -19,10 +20,10 @@ db.sequelize.sync()
 // User router 
 app.use(`${API.path}`, userRouter)
 
-
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+app.use(express.static(path.join(__dirname, '../dist/')));
+// app.get('/', function (req, res) {
+//   res.send('Hello World')
+// })
 
 
 
