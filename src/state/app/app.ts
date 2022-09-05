@@ -5,12 +5,21 @@ export enum colorModeType {
     light = 'light'
 }
 
+export enum appTemplates {
+    header = 'header',
+    sidebar = 'sidebar',
+    content = 'content',
+    footer = 'footer'
+}
+
 export interface AppStateProps {
     colorMode: colorModeType,
+    useTemplates: appTemplates[],
 
 }
 export const appDefaultState: AppStateProps = {
-    colorMode: colorModeType.dark
+    colorMode: colorModeType.light,
+    useTemplates: Object.values(appTemplates),
 }
 
 export const appAtom = atom({
