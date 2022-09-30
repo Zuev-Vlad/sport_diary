@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:13.3
     environment:
-      POSTGRES_DB: 'sportDiary'
+      POSTGRES_DB: 'sport-diary'
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
     ports:

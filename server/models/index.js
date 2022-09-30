@@ -1,15 +1,22 @@
-const { DB, USER, PASSWORD, HOST, dialect, pool } = require('../config/db.config')
+const {
+  DB,
+  USER,
+  PASSWORD,
+  HOST,
+  dialect,
+  pool,
+} = require("../config/db.config");
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(DB, USER, PASSWORD, {
-    host: HOST,
-    dialect,
-    pool
-})
+  host: HOST,
+  dialect,
+  pool,
+});
 
-const db = {}
+const db = {};
 
-db.sequelize = Sequelize
-db.sequelize = sequelize
-db.users = require('./user.model')(sequelize, Sequelize)
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.users = require("./user.model")(sequelize, Sequelize);
 
-module.exports = db
+module.exports = db;

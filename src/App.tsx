@@ -7,9 +7,9 @@ import { AppContainer } from "./components/AppTemplate/AppContainer/AppContainer
 export const App = () => {
   return (
     <RecoilRoot>
-      <BrowserRouter>
-        <AppContainer />
-      </BrowserRouter>
+        <BrowserRouter>
+          <AppContainer />
+        </BrowserRouter>
     </RecoilRoot>
   );
 };

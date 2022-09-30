@@ -5,14 +5,17 @@ import styled from "styled-components";
 import { Auth } from "../../components/Auth/Auth";
 import { AppModel } from "../../models/AppModel/AppModel";
 import { appTemplates } from "../../state/app/app";
+import { APP_COLOR } from "../../styles/app/stylesApp";
 
 const AuthPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10vh;
-  background: #232c47;
+  max-width: 600px;
+  width: 100%;
+  margin: 5rem auto;
+  background-color: ${APP_COLOR.dark};
 `;
 
 export const AuthPage = () => {
@@ -33,9 +36,7 @@ export const AuthPage = () => {
 
   return (
     <AuthPageContainer>
-      <div className="mx-auto">
-        <Auth />
-      </div>
+      <Auth />
     </AuthPageContainer>
   );
 };
